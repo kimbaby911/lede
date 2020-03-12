@@ -30,7 +30,7 @@ jobs:
           ref: master
         #      ↑↑↑ 改成你的分支名, 一般是master
 
-      - name: test v1.0
+      - name: Rpi_4B
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
@@ -58,13 +58,12 @@ jobs:
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
           
-      - name: 自定义插件主题。
+      - name: Pluging and Theme.
         run: |
           cd package
           mkdir openwrt-packages
           cd openwrt-packages
           git clone https://github.com/Ameykyl/luci-app-koolproxyR.git
-          git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark.git
           git clone https://github.com/rosywrt/luci-theme-rosy.git
 
       - name: Update feeds
@@ -184,7 +183,6 @@ jobs:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_luci-theme-netgear=y
-          CONFIG_PACKAGE_luci-theme-Butterfly-dark=y
           CONFIG_PACKAGE_luci-theme-rosy=y
           EOF
 
