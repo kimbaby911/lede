@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: Pi_4B
+name: Rpi_4B
 
 on:
   push:
@@ -65,7 +65,7 @@ jobs:
           cd openwrt-packages
           git clone https://github.com/Ameykyl/luci-app-koolproxyR.git
           git clone https://github.com/Leo-Jo-My/luci-theme-Butterfly-dark.git
-          git clone https://github.com/Leo-Jo-My/luci-theme-opentomato.git
+          git clone https://github.com/rosywrt/luci-theme-rosy.git
 
       - name: Update feeds
         run: |
@@ -154,7 +154,7 @@ jobs:
 
           # 常用LuCI插件选择:
           cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-app-adbyby-plus=y
+          # CONFIG_PACKAGE_luci-app-adbyby-plus=y
           CONFIG_PACKAGE_luci-app-aria2=y
           CONFIG_PACKAGE_luci-app-baidupcs-web=y
           CONFIG_PACKAGE_luci-app-docker=y
@@ -185,7 +185,7 @@ jobs:
           CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_luci-theme-netgear=y
           CONFIG_PACKAGE_luci-theme-Butterfly-dark=y
-          CONFIG_PACKAGE_luci-theme-opentomato=y
+          CONFIG_PACKAGE_luci-theme-rosy=y
           EOF
 
           # 常用软件包:
