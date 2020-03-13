@@ -65,6 +65,10 @@ jobs:
            cd openwrt-packages
            git clone https://github.com/rosywrt/luci-theme-rosy.git
            git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git
+           git clone https://github.com/frainzy1477/luci-app-clash.git
+           git clone https://github.com/hong0980/luci-app-passwall.git
+           git clone https://github.com/cnsilvan/luci-app-unblockneteasemusic.git
+   
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
@@ -163,6 +167,9 @@ jobs:
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
           CONFIG_PACKAGE_luci-app-syncdial=y
           CONFIG_PACKAGE_luci-app-transmission=y
+          CONFIG_PACKAGE_luci-app-clash=y
+          CONFIG_PACKAGE_luci-app-passwall=y
+          CONFIG_PACKAGE_luci-app-unblockneteasemusic=y
           EOF
           # LuCI主题:
           cat >> .config <<EOF
