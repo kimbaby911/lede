@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: Rpi_4BV1.7
+name: Rpi_4BV20
 
 on:
   push:
@@ -65,6 +65,7 @@ jobs:
            cd openwrt-packages
            git clone https://github.com/rosywrt/luci-theme-rosy.git
            git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git
+           git clone https://github.com/apollo-ng/luci-theme-darkmatter.git
    
       - name: Update feeds
         run: |
@@ -142,7 +143,7 @@ jobs:
           cat >> .config <<EOF
           # CONFIG_PACKAGE_luci-app-adbyby-plus=y
           # CONFIG_PACKAGE_luci-app-aria2=y
-          # CONFIG_PACKAGE_luci-app-baidupcs-web=y
+          CONFIG_PACKAGE_luci-app-baidupcs-web=y
           # CONFIG_PACKAGE_luci-app-docker=y
           # CONFIG_PACKAGE_luci-app-frpc=y
           # CONFIG_PACKAGE_luci-app-hd-idle=y
@@ -164,7 +165,7 @@ jobs:
           # CONFIG_PACKAGE_luci-app-wrtbwmon=y
           CONFIG_PACKAGE_luci-app-syncdial=y
           # CONFIG_PACKAGE_luci-app-transmission=y
-          # CONFIG_PACKAGE_luci-app-unblockmusic=y
+          CONFIG_PACKAGE_luci-app-unblockmusic=y
           EOF
           # LuCI主题:
           cat >> .config <<EOF
@@ -172,6 +173,7 @@ jobs:
           CONFIG_PACKAGE_luci-theme-netgear=y
           CONFIG_PACKAGE_luci-theme-rosy=y
           CONFIG_PACKAGE_luci-theme-atmaterial=y
+          CONFIG_PACKAGE_luci-theme-darkmatter=y
           EOF
           # 常用软件包:
           cat >> .config <<EOF
